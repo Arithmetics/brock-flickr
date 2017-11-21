@@ -1,0 +1,25 @@
+<h1>Test</h1>
+
+<%= params.inspect %>
+<%= form_tag(root_path, method: "get" ) do %>
+  <%= label_tag :user_id, "Flickr User ID" %>
+  <%= text_field_tag :user_id %>
+  <%= submit_tag("Get Photos") %>
+<% end %>
+
+<% if @person %>
+  <p><%= @person.real_name %></p>
+<% end %>
+
+<% if @photos %>
+
+  <% @photos.each do |photo| %>
+    <br>
+    <br>
+    <%= link_to "link", photo.source_url %>
+    <%= image_tag photo.source_url %>
+    <br>
+    <br>
+  <% end %>
+
+<% end %>
